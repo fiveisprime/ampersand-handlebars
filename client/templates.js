@@ -13,17 +13,6 @@
 
     var templatizer = {};
     templatizer["includes"] = {};
-    templatizer["pages"] = {};
-
-    // includes/formInput.jade compiled template
-    templatizer["includes"]["formInput"] = function tmpl_includes_formInput() {
-        return '<div class="form-group"><label data-hook="label"></label><div data-hook="message-container"><div data-hook="message-text" class="alert alert-danger"></div></div><input class="form-control"/></div>';
-    };
-
-    // includes/person.jade compiled template
-    templatizer["includes"]["person"] = function tmpl_includes_person() {
-        return '<li class="person list-group-item"><img data-hook="avatar" width="40" height="40"/><a data-hook="name"></a><span class="btn-group pull-right"> <a data-hook="action-edit" class="btn btn-default">edit </a><a href="#" data-hook="action-delete" class="btn btn-danger">delete</a></span></li>';
-    };
 
     return templatizer;
 }));
