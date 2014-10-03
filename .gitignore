@@ -11,6 +11,11 @@ lib-cov
 pids
 logs
 results
+lib-cov
+coverage
+.grunt
+build/Release
+.lock-wscript
 
 node_modules
 npm-debug.log
