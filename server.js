@@ -10,7 +10,6 @@ var Moonboots    = require('moonboots-express');
 var semiStatic   = require('semi-static');
 var serveStatic  = require('serve-static');
 var stylizer     = require('stylizer');
-var templatizer  = require('templatizer');
 
 var app          = express();
 
@@ -93,14 +92,6 @@ new Moonboots({
     browserify: {
       debug: false,
       transforms: ['browserify-handlebars']
-    },
-    beforeBuildJS: function () {
-      // This re-builds our template files from jade each time the app's main
-      // js file is requested. Which means you can seamlessly change jade and
-      // refresh in your browser to get new templates.
-      if (config.isDev) {
-        templatizer(fixPath('templates'), fixPath('client/templates.js'));
-      }
     },
     beforeBuildCSS: function (done) {
       // This re-builds css from stylus each time the app's main css file is
