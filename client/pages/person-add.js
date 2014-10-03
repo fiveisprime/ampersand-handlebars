@@ -1,12 +1,10 @@
 /*global app*/
 var PageView = require('./base');
-var templates = require('../templates');
 var PersonForm = require('../forms/person');
-
 
 module.exports = PageView.extend({
   pageTitle: 'add person',
-  template: templates.pages.personAdd,
+  template: require('../templates/pages/personAdd.hbs'),
   subviews: {
     form: {
       container: 'form',

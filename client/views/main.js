@@ -1,20 +1,19 @@
-/*global app, me, $*/
+/* global app, me, window, document */
 // This app view is responsible for rendering all content that goes into
 // <html>. It's initted right away and renders itself on DOM ready.
 
-// This view also handles all the 'document' level events such as keyboard shortcuts.
-var View = require('ampersand-view');
+// This view also handles all the 'document' level events such as keyboard
+// shortcuts.
+var View         = require('ampersand-view');
 var ViewSwitcher = require('ampersand-view-switcher');
-var _ = require('underscore');
-var domify = require('domify');
-var dom = require('ampersand-dom');
-var templates = require('../templates');
-var tracking = require('../helpers/metrics');
-var setFavicon = require('favicon-setter');
+var _            = require('underscore');
+var domify       = require('domify');
+var dom          = require('ampersand-dom');
+var setFavicon   = require('favicon-setter');
 
+require('../helpers/metrics');
 
 module.exports = View.extend({
-  // template: templates.body,
   template: require('../templates/body.hbs'),
   initialize: function () {
     // this marks the correct nav item selected
@@ -25,14 +24,14 @@ module.exports = View.extend({
   },
   render: function () {
     // some additional stuff we want to add to the document head
-    document.head.appendChild(domify(templates.head()));
+    document.head.appendChild(domify(require('../templates/head.hbs')()));
 
     // main renderer
-    this.renderWithTemplate({me: me});
+    this.renderWithTemplate({ me: me });
 
     // init and configure our page switcher
     this.pageSwitcher = new ViewSwitcher(this.queryByHook('page-container'), {
-      show: function (newView, oldView) {
+      show: function (newView /*oldView*/) {
         // it's inserted and rendered for me
         document.title = _.result(newView, 'pageTitle') || 'Ampersand test app.';
         document.scrollTop = 0;

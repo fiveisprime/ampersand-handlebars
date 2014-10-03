@@ -16,7 +16,8 @@ module.exports = {
   blastoff: function () {
     var self = window.app = this;
 
-    // create our global 'me' object and an empty collection for our people models.
+    // create our global 'me' object and an empty collection for our people
+    // models.
     window.me = new Me();
     this.people = new People();
 

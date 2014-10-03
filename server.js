@@ -1,23 +1,23 @@
-var path = require('path');
-var express = require('express');
-var helmet = require('helmet');
-var bodyParser = require('body-parser');
+var path         = require('path');
+
+var bodyParser   = require('body-parser');
+var compress     = require('compression');
 var cookieParser = require('cookie-parser');
-var Moonboots = require('moonboots-express');
-var compress = require('compression');
-var config = require('getconfig');
-var semiStatic = require('semi-static');
-var serveStatic = require('serve-static');
-var stylizer = require('stylizer');
-var templatizer = require('templatizer');
-// var hbsCompiler = require('handlebars-precompiler');
-var app = express();
+var config       = require('getconfig');
+var express      = require('express');
+var helmet       = require('helmet');
+var Moonboots    = require('moonboots-express');
+var semiStatic   = require('semi-static');
+var serveStatic  = require('serve-static');
+var stylizer     = require('stylizer');
+var templatizer  = require('templatizer');
+
+var app          = express();
 
 // a little helper for fixing paths for various environments
 var fixPath = function (pathString) {
   return path.resolve(path.normalize(pathString));
 };
-
 
 // -----------------
 // Configure express
